@@ -1,0 +1,29 @@
+<script>
+  //initialize the select option elementrs
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+      });
+ 
+     
+    document.getElementById('btnRunIt').addEventListener('click',doStuff);
+    
+    function doStuff(){
+    
+    var Userinfo={};
+    
+    Userinfo.FirstName=document.getElementById('fn').value;
+    Userinfo.LastName=document.getElementById('ln').value;
+    Userinfo.Application=document.getElementById('application').value;
+     
+    
+    
+      
+      google.script.run.userClick(Userinfo);//run server side function
+      var  FirstName=document.getElementById('fn').value="";
+      var   LastName=document.getElementById('ln').value="";
+      var Application=document.getElementById('application');
+      Application.selectedIndex=0;
+      M.FormSelect.init(Application);
+    }
+    </script>
